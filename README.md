@@ -1,8 +1,8 @@
 # Project
 
-The application downloads the raw data from https://mach-eight.uc.r.appspot.com and print a list of all pairs of players whose height in inches adds up to the integer input to the application. 
+The application downloads the raw data from https://mach-eight.uc.r.appspot.com and print a list of all pairs of players whose height in inches adds up to the integer USER_INPUT to the application. 
 ```bash
-python main.py <USER_INT_INPUT>
+python main.py USER_INPUT
 ```
 If no matches are found, the application prints "No matches found".
 
