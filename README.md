@@ -1,47 +1,49 @@
-## Project
+# Project
 
-The project is to write a function that searches through NBA player heights
-based on user input. The raw data is taken from
-[here](https://www.openintro.org/data/index.php?data=nba_heights).  The data is
-served in json format by the endpoint
-[here](https://mach-eight.uc.r.appspot.com/).
-
-The task is to create an application that takes a single integer input. The
-application will download the raw data from the website above
-(https://mach-eight.uc.r.appspot.com) and print a list of all pairs of players
-whose height in inches adds up to the integer input to the application. If no
-matches are found, the application will print "No matches found"
+The application downloads the raw data from https://mach-eight.uc.r.appspot.com and print a list of all pairs of players whose height in inches adds up to the integer input to the application. 
+```bash
+python main.py <USER_INT_INPUT>
+```
+If no matches are found, the application prints "No matches found".
 
 Sample output is as follows:
+```bash
+python3 main.py 139
 ```
-> app 139
-
-- Brevin Knight         Nate Robinson
-- Nate Robinson         Mike Wilks
+```bash
+- Nate Robinson          Brevin Knight
+- Nate Robinson          Mike Wilks
 ```
 
-The algorithm to find the pairs must be faster than O(n^2). All edge cases
-should be handled appropriately. This is _not_ a closed book test. You are
-encouraged to reach out with any questions that you come across.
-
-## Evaluation
-
-All candidates who submit an algorithm that is efficient and correct will pass
-to the next step of the interview process. We define "efficient" as faster than
-O(n^2) and "correct" as returning the correct results for all possible inputs.
-Any assignment that doesn't return the correct answer for the sample input
-above (139) will fail.
-
-If you feel the need to impress us by going above and beyond, we're impressed
-by good unit tests as well as clean and readable code. We're less interested in
-your knowledge of any particular framework (react, django, etc.). You're
-welcome to create a full featured web app with pretty graphics if you want, but
-that will not improve your chances of passing. There have been passing
-assignments written in under 30 lines of python.
+The algorithm to find the pairs is `O(n log n)` and is divided in:
+- A sorted list of players, whose complexity is `O(n log n)`
+- A binary search, whose complexity is `O(log n)`. Since binary search is inside a for loop, the worst case is `O(n log n)`.
 
 
-## Submission
+`O(n log n)` complexity is faster than `O(n^2)`.
 
-The preferred form of submission is by publishing a public repo on github with
-your code and a README file explaining how to run the code. I also can accept
-an emailed zip file with the same contents.
+## Installation
+### Clone the Project
+````bash
+git clone https://github.com/luisca1985/nba-players.git
+````
+````
+cd nba-players
+````
+
+### Virtual Environment
+````
+python3 -m venv venv
+````
+````
+source venv/bin/activate
+
+````
+### Modules Installation
+````
+pip3 install -r requirements.txt
+````
+### Run the App
+````
+python3 main.py USER_INPUT
+````
